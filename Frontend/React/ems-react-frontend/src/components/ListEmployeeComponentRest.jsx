@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { listEmployees } from '../services/EmployeeService'
+import { useNavigate } from 'react-router-dom'
 
 const ListEmployeeComponentRest = () => {
 
@@ -12,12 +13,18 @@ const ListEmployeeComponentRest = () => {
         console.error(error);
       })
     }, [])
+
+    const navigator = useNavigate();
     
+    function addNewEmployee (){
+        navigator('/add-employee')
+    }
 
   return (
     <div>
         
        <h2> List of Employee From  Spring boot - 'http://localhost:8080/api/employee'</h2>
+       <button className="btn btn-info" onClick={addNewEmployee}>Add Employee</button>
        <table className='table table-striped table-bordered'>
         <thead>
             <tr>
@@ -32,8 +39,8 @@ const ListEmployeeComponentRest = () => {
                 employee.map(employee =>
                     <tr key={employee.id}>
                         <td>{employee.id}</td>
-                        <td>{employee.firstname}</td>
-                        <td>{employee.lastname}</td>
+                        <td>{employee.firstName}</td>
+                        <td>{employee.lastName}</td>
                         <td>{employee.email}</td>
                     </tr>
                 )

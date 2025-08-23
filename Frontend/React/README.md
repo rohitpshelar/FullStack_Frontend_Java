@@ -27,6 +27,8 @@ From :   [🔥ReactJS + Spring Boot Full-Stack Course [2025]](https://youtube.co
    3. add this component [App.jsx](ems-react-frontend/src/App.jsx)
 
 3. Install axios Library - For HTTP call - ```npm install axios --save```
-4. Create service [EmployeeService.jsx](ems-react-frontend/src/services/EmployeeService.jsx) and Http call [ListEmployeeComponentRest.jsx](ems-react-frontend/src/components/ListEmployeeComponentRest.jsx)
-5. Add ```@CrossOrigin("*")``` to [EmployeeController.java](../../Backend/src/main/java/com/javaguide/fullsatck_backend/controller/EmployeeController.java) to avoid ` has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.`
-6. 
+4. Create service [EmployeeService.jsx](ems-react-frontend/src/services/EmployeeService.jsx) 
+5. **GET CALL** : Http call [ListEmployeeComponentRest.jsx](ems-react-frontend/src/components/ListEmployeeComponentRest.jsx)
+6. Add ```@CrossOrigin("*")``` to [EmployeeController.java](../../Backend/src/main/java/com/javaguide/fullsatck_backend/controller/EmployeeController.java) to avoid ` has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.`
+7. Added [Header.jsx](ems-react-frontend/src/components/Header.jsx) and [Footer.jsx](ems-react-frontend/src/components/Footer.jsx)
+8. Add **React-Router-DOM** ```npm install react-router-dom --save```
