@@ -2,6 +2,7 @@ package com.javaguide.fullsatck_backend.controller;
 
 import com.javaguide.fullsatck_backend.dto.EmployeeDto;
 import com.javaguide.fullsatck_backend.service.EmployeeService;
+import jakarta.websocket.server.PathParam;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -29,13 +30,13 @@ public class EmployeeController {
         return new ResponseEntity<>(employeeService.createEmployee(employeeDto), HttpStatus.CREATED);
     }
 
-    @GetMapping("/byId")
-    public ResponseEntity<EmployeeDto>  findById(@RequestParam Long id){
+    @GetMapping("{id}")
+    public ResponseEntity<EmployeeDto>  findById(@PathVariable Long id){
         return ResponseEntity.ok(employeeService.getById(id));
     }
 
-    @PutMapping
-    public ResponseEntity<EmployeeDto> update(@RequestParam Long id,@RequestBody  EmployeeDto employeeDto ){
+    @PutMapping("{id}")
+    public ResponseEntity<EmployeeDto> update(@PathVariable Long id,@RequestBody  EmployeeDto employeeDto ){
         return ResponseEntity.ok(employeeService.update(id, employeeDto));
     }
 
