@@ -12,15 +12,15 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        <Header/>
-          <Routes>
+        <Header />
+        <Routes>
 
-            <Route path='/' element = {<><WelcomeJs/><ListEmployeeComponentDummy/><ListEmployeeComponentRest/></>}></Route>
-            <Route path='/employee' element = {<ListEmployeeComponentRest/>}></Route>
-            <Route path='/add-employee' element = {<AddEmployeeComponent/>}></Route>
+          <Route path='/' element={<><WelcomeJs /><ListEmployeeComponentDummy /><ListEmployeeComponentRest /></>}></Route>
+          <Route path='/employee' element={<ListEmployeeComponentRest />}></Route>
+          <Route path='/add-employee' element={<AddEmployeeComponent />}></Route>
 
-          </Routes>
-        <Footer/>
+        </Routes>
+        <Footer />
       </BrowserRouter>
     </>
   )

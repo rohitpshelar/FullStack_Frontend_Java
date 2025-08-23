@@ -23,8 +23,10 @@ const ListEmployeeComponentRest = () => {
   return (
     <div>
         
-       <h2> List of Employee From  Spring boot - 'http://localhost:8080/api/employee'</h2>
-       <button className="btn btn-info" onClick={addNewEmployee}>Add Employee</button>
+       <h2> List of Employee From  Spring boot </h2>
+       <h6>  'http://localhost:8080/api/employee'</h6>
+       <button className="btn btn-success" onClick={addNewEmployee}>Add Employee</button>
+       <h6>  </h6>
        <table className='table table-striped table-bordered'>
         <thead>
             <tr>

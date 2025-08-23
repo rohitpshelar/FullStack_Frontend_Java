@@ -32,3 +32,6 @@ From :   [🔥ReactJS + Spring Boot Full-Stack Course [2025]](https://youtube.co
 6. Add ```@CrossOrigin("*")``` to [EmployeeController.java](../../Backend/src/main/java/com/javaguide/fullsatck_backend/controller/EmployeeController.java) to avoid ` has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.`
 7. Added [Header.jsx](ems-react-frontend/src/components/Header.jsx) and [Footer.jsx](ems-react-frontend/src/components/Footer.jsx)
 8. Add **React-Router-DOM** ```npm install react-router-dom --save```
+9. **POST CALL** : [AddEmployeeComponent.jsx](ems-react-frontend/src/components/AddEmployeeComponent.jsx)
+10. Add Validation ref : [AddEmployeeComponent.jsx](ems-react-frontend/src/components/AddEmployeeComponent.jsx)
+11. 
