@@ -1,7 +1,7 @@
 
 function WelcomeJs() {
 
-  return     <h1>Hello World Reactjs</h1>
+  return     <h1 className="btn btn-info">Hello World Reactjs</h1>
 
 }
 

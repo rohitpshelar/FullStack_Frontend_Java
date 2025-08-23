@@ -18,3 +18,10 @@ From :   [🔥ReactJS + Spring Boot Full-Stack Course [2025]](https://youtube.co
    4. Dependency are in [package.json](ems-react-frontend/package.json)
    5. Start Point [index.html](ems-react-frontend/index.html) > [main.jsx](ems-react-frontend/src/main.jsx) > [App.jsx](ems-react-frontend/src/App.jsx)
    6. Add BootStrap to React ``` npm install bootstrap --save ```
+   7. Add ```import 'bootstrap/dist/css/bootstrap.min.css'``` in main.jsx
+   8. Add ```className="btn btn-info"``` in [WelcomeJs.jsx](ems-react-frontend/src/WelcomeJs.jsx) :  (Ref - https://www.w3schools.com/bootstrap/bootstrap_ref_all_classes.asp)
+
+2. Add list to react
+   1. add plugin to VS as - ES7+ React/Redux/React-Native snippets
+   2. Create new Component [ListEmployeeComponent.jsx](ems-react-frontend/src/component/ListEmployeeComponent.jsx) and type ```rcfe ``` to  auto generate code OR ```rafce``` to auto generate arrow function
+   3. add this component [App.jsx](ems-react-frontend/src/App.jsx)
