@@ -15,12 +15,12 @@ public interface EmployeeMapper {
 
     EmployeeMapper INSTANCE = Mappers.getMapper( EmployeeMapper.class );
 
-//    @Mapping(target = "id", ignore = true)
     EmployeeDto toDto(Employee employee);
 
-
-//    @Mapping(target = "id", ignore = true)
+    @Mapping(target = "id", ignore = true)
     Employee toEntity(EmployeeDto employeeDto);
+
     List<EmployeeDto> toListDto(List<Employee> employee);
+
     List<Employee> toListEntity(List<EmployeeDto> employeeDto);
 }
