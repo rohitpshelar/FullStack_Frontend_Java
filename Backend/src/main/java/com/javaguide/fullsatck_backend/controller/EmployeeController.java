@@ -2,7 +2,6 @@ package com.javaguide.fullsatck_backend.controller;
 
 import com.javaguide.fullsatck_backend.dto.EmployeeDto;
 import com.javaguide.fullsatck_backend.service.EmployeeService;
-import jakarta.websocket.server.PathParam;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
