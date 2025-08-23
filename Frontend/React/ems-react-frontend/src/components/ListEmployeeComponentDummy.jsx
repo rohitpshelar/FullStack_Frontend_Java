@@ -1,26 +1,26 @@
 import React from 'react'
 
-const ListEmployeeComponent = () => {
+const ListEmployeeComponentDummy = () => {
 
     const dummyData = [
        {
             "id": 1,
             "firstname": "Rohit",
             "lastname": "Shelar",
-            "email": "rs@rs.com"
+            "email": "rps@yahoo.com"
         },
         {
             "id": 2,
-            "firstname": "Rohit",
+            "firstname": "Eva",
             "lastname": "Shelar",
-            "email": "rs@gmail.com"
+            "email": "eva@gmail.com"
         }
     ]
 
   return (
     <div>
         
-       <h2> List of Employee</h2>
+       <h2> List of Employee From Dummy Data</h2>
        <table className='table table-striped table-bordered'>
         <thead>
             <tr>
@@ -49,4 +49,4 @@ const ListEmployeeComponent = () => {
   )
 }
 
-export default ListEmployeeComponent
+export default ListEmployeeComponentDummy

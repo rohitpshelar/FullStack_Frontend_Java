@@ -22,6 +22,11 @@ From :   [🔥ReactJS + Spring Boot Full-Stack Course [2025]](https://youtube.co
    8. Add ```className="btn btn-info"``` in [WelcomeJs.jsx](ems-react-frontend/src/WelcomeJs.jsx) :  (Ref - https://www.w3schools.com/bootstrap/bootstrap_ref_all_classes.asp)
 
 2. Add list to react
-   1. add plugin to VS as - ES7+ React/Redux/React-Native snippets
-   2. Create new Component [ListEmployeeComponent.jsx](ems-react-frontend/src/component/ListEmployeeComponent.jsx) and type ```rcfe ``` to  auto generate code OR ```rafce``` to auto generate arrow function
+   1. add plugin to VS as - `ES7+ React/Redux/React-Native snippets`
+   2. Create new Component [ListEmployeeComponentDummy.jsx](ems-react-frontend/src/components/ListEmployeeComponentDummy.jsx) and type ```rcfe ``` to  auto generate code OR ```rafce``` to auto generate arrow function
    3. add this component [App.jsx](ems-react-frontend/src/App.jsx)
+
+3. Install axios Library - For HTTP call - ```npm install axios --save```
+4. Create service [EmployeeService.jsx](ems-react-frontend/src/services/EmployeeService.jsx) and Http call [ListEmployeeComponentRest.jsx](ems-react-frontend/src/components/ListEmployeeComponentRest.jsx)
+5. Add ```@CrossOrigin("*")``` to [EmployeeController.java](../../Backend/src/main/java/com/javaguide/fullsatck_backend/controller/EmployeeController.java) to avoid ` has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.`
+6. 
