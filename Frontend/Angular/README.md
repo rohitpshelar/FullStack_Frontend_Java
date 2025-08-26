@@ -13,3 +13,4 @@
 9. Create Employee class ```ng g class employee```
 10. Create Component to get employee list ```ng g c employee-list```
 11. Create dummy data [employee-list.ts](ems-angular-frontend/src/app/employee-list/employee-list.ts)
+12. To create service `ng g s employee`
