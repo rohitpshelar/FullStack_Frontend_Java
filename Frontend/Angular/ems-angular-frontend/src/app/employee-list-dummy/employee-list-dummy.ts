@@ -1,11 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Employee } from '../employee';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-employee-list-dummy',
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './employee-list-dummy.html',
-  styleUrl: './employee-list-dummy.css'
+  styleUrl: './employee-list-dummy.css',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class EmployeeListDummy implements OnInit{
   employees: Employee[];

@@ -115,7 +115,7 @@ const AddEmployeeComponent = () => {
                 {pageTitle()}
                 <form className="contact-form row">
                     <div className="form-field col-lg-6">
-                        <label className='input-text js-input'>First Name</label>
+                        <label className='form-lable'>First Name</label>
                         <input
                             type="text"
                             className={`form-control ${errors.firstName ? 'is-invalid' : ''}`}

@@ -18,3 +18,4 @@ https://youtu.be/URhjOPOKvA8?si=R8CGEwVykQkWh7E9
 10. Create Component to get employee list ```ng g c employee-list```
 11. Create dummy data [employee-list.ts](ems-angular-frontend/src/app/employee-list/employee-list.ts)
 12. To create service `ng g s employee`
+13. To Create Add Component `ng g c add-employee`
