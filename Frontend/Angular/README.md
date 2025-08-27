@@ -1,5 +1,9 @@
 # Angular Tutorial
 
+ref-
+https://youtu.be/G46fjVzQ7BQ?si=dRbQXFOoRAqHy2jy
+https://youtu.be/URhjOPOKvA8?si=R8CGEwVykQkWh7E9
+
 1. Install Angular  - GOTO - https://angular.dev/tools/cli/setup-local
 2. Run on terminal on desired folder  ``` npm install -g @angular/cli```
 3. Check version ```ng --version```
