@@ -8,7 +8,8 @@ From :   [🔥ReactJS + Spring Boot Full-Stack Course [2025]](https://youtube.co
 
 1. To create new project 
    1. Open desired folder on VS > Open Terminal > Add ```npm create vite@latest ems-react-frontend```
-   2. app is created run ```npm run dev```
+   2. ⚠️ To Initialize On Another Machine  ``` npm install```
+   3. app is created run ```npm run dev```
    3. To add port add in [vite.config.js](ems-react-frontend/vite.config.js)
    ```shell
    server:{

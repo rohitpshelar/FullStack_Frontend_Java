@@ -71,14 +71,16 @@ const AddEmployeeComponent = () => {
                 }).catch(error => {
                     console.error(error);
                 })
-            }
+            } 
 
 
             // Http Call
-            addEmployee(employee).then((response) => {
-                console.log(response.data);
-                navigator('/employee');
-            })
+             if (!id) {
+                addEmployee(employee).then((response) => {
+                    console.log(response.data);
+                    navigator('/employee');
+                })
+            }
         }
     }
     const { id } = useParams();

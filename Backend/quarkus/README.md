@@ -1,0 +1,190 @@
+# quarkus_tutorials https://youtube.com/playlist?list=PLzdlNxYnNoaf5bb-Pwb7MbWHGlRf28pVO&si=fUuG6enQWCokfN4t
+
+## Spring Boot vs Quarkus Annotations Comparison
+
+| Annotation Type       | Spring Boot            | Quarkus               |
+|-----------------------|------------------------|-----------------------|
+| **Main Class**        | @SpringBootApplication | @QuarkusMain          |
+| **Dependency Inj.**   | @Autowired             | @Inject               |
+| **Components**        | @Repository            | @ApplicationScoped    |
+|                       | @Service               | @ApplicationScoped    |
+|                       | @Component             | @ApplicationScoped    |
+| **Data Access**       | CrudRepository         | PanacheRepository     |
+|                       | @Entity                | @Entity               |
+|                       | @Transactional         | @Transactional        |
+| **Web**               | @RestController        | @Path                 |
+|                       | @GetMapping            | @GET                  |
+|                       | @PostMapping           | @POST                 |
+| **Testing**           | @SpringBootTest        | @QuarkusTest          |
+|                       | @MockBean              | @InjectMock           |
+| **Configuration**     | @Value                 | @ConfigProperty       |
+| **Caching**           | @EnableCaching         | @CacheResult          |
+| **Scheduling**        | @Scheduled             | @Scheduled            |
+| **Async**             | @Async                 | @Blocking/@NonBlocking|
+
+
+
+1. Support both
+
+```
+Imperative -> if ABC data fetched, it will search entire DB and bring record
+Reactive -> If ABC is fetched, it will return data 1 by 1 as it gets.
+```
+
+2. Open source
+3.  Set JAVA_HOME
+4.  Download Maven https://maven.apache.org/download.cgi > Binary zip archive >  keep in C:\Program Files (x86) >  set path (C:\Program Files (x86)\apache-maven-3.9.11\bin) in "PATH"
+5.  Goto https://code.quarkus.io/
+6. Dependency Selected
+    1. RESTEasy Classic
+    2. RESTEasy Classic Jackson
+7. Add project to intellij
+8. Add plugin in Intellij as > Quarkus Tools
+9. run Project with command ```mvn quarkus:dev``` OR  ```./mvnw quarkus:dev``` (Ref : [Quarkus_README.md](Quarkus_README.md) )
+10. In 4th Lecture
+11. To check Quarkus supported Extension/Dependencies -> ```mvn quarkus:list-extensions``` OR ```./mvnw quarkus:list-extensions```
+12. To Add  > ```./mvnw quarkus:add-extension -Dextensions="_____"``` OR ```mvn quarkus:add-extension -Dextensions="Mutiny"```
+13. In 6th Part - All 4 API added [MobileResource.java](src/main/java/com/learn/resource/MobileResource.java) and their Postman collection [quarkus-tutorial-mvn.postman_collection.json](quarkus-tutorial-mvn.postman_collection.json)
+14. In 7th Part - All 4 API updated with modal and 5th API ByNumber ([Mobile.java](src/main/java/com/learn/resource/Mobile.java)) and new resource [MobileResourcePart7.java](src/main/java/com/learn/resource/MobileResourcePart7.java) and their Postman collection [quarkus-tutorial-mvn.postman_collection.json](quarkus-tutorial-mvn.postman_collection.json)
+15. In 8th Part -
+    1. Add swagger ```mvn quarkus:add-extension -Dextensions="quarkus-smallrye-openapi"```
+    2. Goto http://localhost:8080/q/swagger-ui/
+    3. To Change default swagger path (http://localhost:8080/q/swagger-ui/) to custom (http://localhost:8080/swag/)
+       ```properties
+          quarkus.swagger-ui.path=/swag
+       ```
+    4. To disable swagger UI Path
+       ```properties
+          quarkus.swagger-ui.always-include=false
+       ```
+16. In 9th Part -  Bring data from other Micro service
+    1. Add following extension/dependency :
+        1. "REST Client" to call remote API ```mvn quarkus:add-extension -Dextensions="quarkus-rest-client"```
+        2. "REST Client jackson" to call remote API ```mvn quarkus:add-extension -Dextensions="quarkus-rest-client-jackson"```
+        3. "quarkus-rest-jackson" to call remote API ```mvn quarkus:add-extension -Dextensions="quarkus-rest-jackson"```
+        4. Remove quarkus-resteasy and quarkus-resteasy-jackson due to conflict regards ( Caused by: jakarta.enterprise.inject.spi.DeploymentException: Mixing Quarkus REST and RESTEasy Classic server parts is not supported )
+    2. Use DUMMY client as https://www.tvmaze.com/api
+        1. Search TV show by Id - https://api.tvmaze.com/shows/169
+        2. Create Modal class for above response
+17. In Part-10 : cors ( Cross Origin Resource Sharing ) - allow external service to access our service ( Open  this from Browser : [Part-10.html](Part-10.html) )
+    ```properties
+    quarkus.http.cors=true
+    quarkus.http.cors.origins=*
+    ```
+    1. Allow only specific method
+    ```properties
+    quarkus.http.cors.methodshs=GET, POST
+    ```
+18. In Part-11, 12 : Microprofile Fault Tolerance
+    1. Add following extension/dependency :
+        1. "Fault Tolerance" to call default method if remote API offline ```mvn quarkus:add-extension -Dextensions="quarkus-smallrye-fault-tolerance"```
+
+    2. Create Fallback Method
+    ```
+        @Fallback(fallbackMethod = "getTvSeriesByIdFallback")
+    ```
+    3. Retry ```@Retry(maxRetries = 2)```
+    4. Timeout ```@Timeout(1000)```
+    5. Circuit Breaker
+    ```
+    @CircuitBreaker(
+        requestVolumeThreshold=2,
+        failureRatio=0.5,
+        delay = 10, delayUnit = ChronoUnit.SECONDS
+    )
+    ```
+    6. Git Bash Script to hit URL in loop
+    ```shell
+        while true; do sleep 1; curl http://localhost:8080/tvseries/260; echo -e '\n'; done
+    ```
+    13. Part-13, 14 : Hibernate-ORM PanacheEntity with H2DB
+        1. "H2DB" - ```./mvnw quarkus:add-extension -Dextensions="io.quarkus:quarkus-jdbc-h2"```
+        2. "Hibernate ORM" - ```./mvnw quarkus:add-extension -Dextensions="io.quarkus:quarkus-hibernate-orm-panache"```
+        3. Two Types
+            1. Extend Entity Class with PanacheEntity
+            2. Implement with PanacheRepository
+        4. Mapping
+            1. One to One
+                - Add ```@OneToOne``` to secondary class
+
+                  <table>
+                     <tr>
+                        <td>
+                           <table>
+                              <tr>
+                                 <th colspan="2">Table 1</th>
+                              </tr>
+                              <tr>
+                                 <td>T1_ID</td>
+                                 <td>T1_Name</td>
+                              </tr>
+                           </table>
+                        </td>
+                        <td>
+                           <table>
+                              <tr>
+                                 <th colspan="3">Table 2</th>
+                              </tr>
+                              <tr>
+                                 <td>T2_ID</td>
+                                 <td>T2S_Name</td>
+                                 <td>T1_ID</td>
+                              </tr>
+                           </table>
+                        </td>
+                     </tr>
+                  </table>
+
+                - But here we can only find Table 1 from Table 2, So
+                - We will add ```@OneToOne``` to Primary class
+
+                <table>
+                   <tr>
+                      <td>
+                         <table>
+                            <tr>
+                               <th colspan="3">Table 1</th>
+                            </tr>
+                            <tr>
+                               <td>T1_ID</td>
+                               <td>T1_Name</td>
+                               <td>T2_ID</td>
+                            </tr>
+                         </table>
+                      </td>
+                      <td>
+                         <table>
+                            <tr>
+                               <th colspan="3">Table 2</th>
+                            </tr>
+                            <tr>
+                               <td>T2_ID</td>
+                               <td>T2S_Name</td>
+                               <td>T1_ID</td>
+                            </tr>
+                         </table>
+                      </td>
+                   </tr>
+                </table>
+                - But now we have two column on both table
+                - So to remove extra column from Primary class use in Primary class :  ```@OneToOne(mappedBy = "<*Primary class*>")```
+                - To fetch both at once use Primary class : **fetch = FetchType.EAGER** : ```@OneToOne(mappedBy = "<*Primary class*>", fetch = FetchType.EAGER)```
+                - To fix ```Infinite recursion``` - which is due to both class has ```@OneToOne``` annotation
+                    1. Add @JsonManagedReference in Primary class
+                    2. Add @JsonBackReference in secondary class
+                - To save both at Once use in Primary class  : **cascade = CascadeType.ALL** : ```@OneToOne(mappedBy = "laptop", fetch = FetchType.EAGER, cascade = CascadeType.ALL)```
+19. Part 29 : Logging
+    1. Info - Method info
+    2. Debug - Data Info
+    3. warning
+    4. Error
+20. Part- 30 : Exception
+21. To DEBUG : 
+    1. Start application 
+    2. In Intellij > Menu > Run > Attach to Process
+22. If Post 8080 is used, to terminate it on windows
+    ```shell
+     netstat -ano | findstr :8080
+     taskkill /PID <_____> /F
+    ```
+
