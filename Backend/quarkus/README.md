@@ -166,13 +166,13 @@ Reactive -> If ABC is fetched, it will return data 1 by 1 as it gets.
                       </td>
                    </tr>
                 </table>
-                - But now we have two column on both table
-                - So to remove extra column from Primary class use in Primary class :  ```@OneToOne(mappedBy = "<*Primary class*>")```
-                - To fetch both at once use Primary class : **fetch = FetchType.EAGER** : ```@OneToOne(mappedBy = "<*Primary class*>", fetch = FetchType.EAGER)```
-                - To fix ```Infinite recursion``` - which is due to both class has ```@OneToOne``` annotation
-                    1. Add @JsonManagedReference in Primary class
-                    2. Add @JsonBackReference in secondary class
-                - To save both at Once use in Primary class  : **cascade = CascadeType.ALL** : ```@OneToOne(mappedBy = "laptop", fetch = FetchType.EAGER, cascade = CascadeType.ALL)```
+           - But now we have two column on both table
+           - So to remove extra column from Primary class use in Primary class :  ```@OneToOne(mappedBy = "<*Primary class*>")```
+           - To fetch both at once use Primary class : **fetch = FetchType.EAGER** : ```@OneToOne(mappedBy = "<*Primary class*>", fetch = FetchType.EAGER)```
+           - To fix ```Infinite recursion``` - which is due to both class has ```@OneToOne``` annotation
+               1. Add @JsonManagedReference in Primary class
+               2. Add @JsonBackReference in secondary class
+           - To save both at Once use in Primary class  : **cascade = CascadeType.ALL** : ```@OneToOne(mappedBy = "laptop", fetch = FetchType.EAGER, cascade = CascadeType.ALL)```
 19. Part 29 : Logging
     1. Info - Method info
     2. Debug - Data Info
