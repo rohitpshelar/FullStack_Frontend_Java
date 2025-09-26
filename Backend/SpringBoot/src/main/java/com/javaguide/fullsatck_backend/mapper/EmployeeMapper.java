@@ -13,7 +13,7 @@ import java.util.List;
 @Component
 public interface EmployeeMapper {
 
-    EmployeeMapper INSTANCE = Mappers.getMapper( EmployeeMapper.class );
+    EmployeeMapper INSTANCE = Mappers.getMapper(EmployeeMapper.class);
 
     EmployeeDto toDto(Employee employee);
 

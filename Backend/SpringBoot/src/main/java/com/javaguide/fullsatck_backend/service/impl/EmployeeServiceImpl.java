@@ -19,7 +19,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Override
     public EmployeeDto createEmployee(EmployeeDto employeeDto) {
         var employee = EmployeeMapper.INSTANCE.toEntity(employeeDto);
-        var e2 = employeeRepository.save(employee );
+        var e2 = employeeRepository.save(employee);
         return EmployeeMapper.INSTANCE.toDto(e2);
     }
 
@@ -30,14 +30,14 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public EmployeeDto getById(Long id) {
-        return EmployeeMapper.INSTANCE.toDto(employeeRepository.findById(id).orElseThrow(()->
+        return EmployeeMapper.INSTANCE.toDto(employeeRepository.findById(id).orElseThrow(() ->
                 new OpenApiResourceNotFoundException("Employee don't exist with given Id : " + id)));
     }
 
     @Override
     public EmployeeDto update(Long id, EmployeeDto employeeDto) {
 
-        var employee  = employeeRepository.findById(id).orElseThrow(()->
+        var employee = employeeRepository.findById(id).orElseThrow(() ->
                 new OpenApiResourceNotFoundException("Employee don't exist with given Id : " + id));
         employee.setFirstName(employeeDto.getFirstName());
         employee.setLastName(employeeDto.getLastName());

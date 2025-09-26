@@ -18,31 +18,31 @@ public class EmployeeController {
     private EmployeeService employeeService;
 
     @GetMapping
-    public ResponseEntity<List<EmployeeDto>> getList(){
+    public ResponseEntity<List<EmployeeDto>> getList() {
         return ResponseEntity.ok(employeeService.getAll());
     }
 
 
     @PostMapping
-    public ResponseEntity<EmployeeDto> createEmployee(@RequestBody EmployeeDto employeeDto){
+    public ResponseEntity<EmployeeDto> createEmployee(@RequestBody EmployeeDto employeeDto) {
         System.out.println(employeeDto);
         return new ResponseEntity<>(employeeService.createEmployee(employeeDto), HttpStatus.CREATED);
     }
 
     @GetMapping("{id}")
-    public ResponseEntity<EmployeeDto>  findById(@PathVariable Long id){
+    public ResponseEntity<EmployeeDto> findById(@PathVariable Long id) {
         return ResponseEntity.ok(employeeService.getById(id));
     }
 
     @PutMapping("{id}")
-    public ResponseEntity<EmployeeDto> update(@PathVariable Long id,@RequestBody  EmployeeDto employeeDto ){
+    public ResponseEntity<EmployeeDto> update(@PathVariable Long id, @RequestBody EmployeeDto employeeDto) {
         return ResponseEntity.ok(employeeService.update(id, employeeDto));
     }
 
     @DeleteMapping("{id}")
-    public ResponseEntity<String> delete(@PathVariable Long id){
+    public ResponseEntity<String> delete(@PathVariable Long id) {
         employeeService.delete(id);
-       return ResponseEntity.ok( "Deleted");
+        return ResponseEntity.ok("Deleted");
     }
 
 }

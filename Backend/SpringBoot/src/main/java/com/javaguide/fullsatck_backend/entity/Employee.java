@@ -1,6 +1,5 @@
 package com.javaguide.fullsatck_backend.entity;
 
-
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -18,8 +17,6 @@ public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
-
-
     String firstName;
     String lastName;
     String email;
