@@ -1,6 +1,5 @@
 package org.rs.entity;
 
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -17,10 +16,8 @@ public class Employee {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
 
-
     String firstName;
     String lastName;
     String email;
-
 
 }

@@ -16,7 +16,7 @@ public class EmployeeController {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getList(){
+    public Response getList() {
         return Response.ok(employeeService.getAll()).build();
     }
 
@@ -25,7 +25,7 @@ public class EmployeeController {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     @Transactional
-    public Response createEmployee(EmployeeDto employeeDto){
+    public Response createEmployee(EmployeeDto employeeDto) {
         System.out.println(employeeDto);
         return Response.ok(employeeService.createEmployee(employeeDto)).build();
     }
@@ -35,7 +35,7 @@ public class EmployeeController {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     @Transactional
-    public Response findById(@PathParam("id") Long id){
+    public Response findById(@PathParam("id") Long id) {
         return Response.ok(employeeService.getById(id)).build();
     }
 
@@ -44,16 +44,16 @@ public class EmployeeController {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     @Transactional
-    public Response update(@PathParam("id") Long id, EmployeeDto employeeDto ){
+    public Response update(@PathParam("id") Long id, EmployeeDto employeeDto) {
         return Response.ok(employeeService.update(id, employeeDto)).build();
     }
 
     @DELETE
     @Path("/{id}")
     @Transactional
-    public Response delete(@PathParam("id") Long id){
+    public Response delete(@PathParam("id") Long id) {
         employeeService.delete(id);
-       return Response.ok( "Deleted").build();
+        return Response.ok("Deleted").build();
     }
 
 }

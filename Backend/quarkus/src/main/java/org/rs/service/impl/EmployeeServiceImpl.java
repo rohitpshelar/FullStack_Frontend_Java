@@ -20,7 +20,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Override
     public EmployeeDto createEmployee(EmployeeDto employeeDto) {
         var employee = employeeMapper.toEntity(employeeDto);
-        employeeRepository.persist(employee );
+        employeeRepository.persist(employee);
         return employeeMapper.toDto(employee);
     }
 
@@ -37,7 +37,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Override
     public EmployeeDto update(Long id, EmployeeDto employeeDto) {
 
-        var employee  = employeeRepository.findById(id);
+        var employee = employeeRepository.findById(id);
         employee.setFirstName(employeeDto.getFirstName());
         employee.setLastName(employeeDto.getLastName());
         employee.setEmail(employeeDto.getEmail());

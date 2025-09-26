@@ -8,9 +8,7 @@ import org.rs.entity.Employee;
 
 import java.util.List;
 
-@Mapper(componentModel = "cdi",
-        nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
-
+@Mapper(componentModel = "cdi", nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
 public interface EmployeeMapper {
 
     EmployeeDto toDto(Employee employee);
