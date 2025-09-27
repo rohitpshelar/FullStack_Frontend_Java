@@ -116,7 +116,7 @@ const AddEmployeeComponent = () => {
             <section className="get-in-touch">
                 {pageTitle()}
                 <form className="contact-form row">
-                    <div className="form-field col-lg-6">
+                    <div className="form-group">
                         <label className='form-lable'>First Name</label>
                         <input
                             type="text"

@@ -4,7 +4,7 @@ const Header = () => {
   return (
     <div>
         <header>
-            <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+            <nav className="navbar navbar-expand-lg navbar-dark bg">
                 <a className="navbar-brand" href="#">Employee Management System</a>
             </nav>
         </header>
