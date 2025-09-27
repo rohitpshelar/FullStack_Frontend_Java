@@ -9,6 +9,7 @@ import WelcomeJs from './WelcomeJs'
 import AddEmployeeComponent from './components/AddEmployeeComponent'
 // import DotGrid from './ReactBitsTheme/DotGrid'
 import LiquidEther from './ReactBitsTheme/LiquidEther'
+import SplashCursor from './ReactBitsTheme/SplashCursor'
 
 function App() {
   return (
@@ -49,13 +50,14 @@ function App() {
           takeoverDuration={0.25}
           autoResumeDelay={3000}
           autoRampDuration={0.6}
-           style={{
+          style={{
             position: 'absolute',
             inset: 0,
             zIndex: -10,
             background: '#181A20',
           }}
         />
+        <SplashCursor />
         <h1> Employee Management Application </h1>
         <BrowserRouter>
           {/* <Header /> */}
