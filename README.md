@@ -10,4 +10,6 @@ Frontend
 
 Backend
 1. [Spring Boot 3](Backend/SpringBoot/README.md)
+   1. H2 Database URL : http://localhost:8080/h2-console
+   2. H2 Database JDBC URL : jdbc:h2:mem:testdb / jdbc:h2:file:./Backend/SpringBoot/myh2db
 2. [Quarkus](Backend/quarkus/README.md)

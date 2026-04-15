@@ -3,7 +3,9 @@ spring:
     name: fullstack-backend
 
   datasource:
-    url: jdbc:h2:file:./Backend/SpringBoot/myh2db;MODE=Oracle;INIT=CREATE SCHEMA IF NOT EXISTS TEST;NON_KEYWORDS=KEY,VALUE;
+#    SHOW COLUMNS FROM TEST.TEST_TABLE
+#    url: jdbc:h2:file:./Backend/SpringBoot/myh2db;MODE=Oracle;INIT=CREATE SCHEMA IF NOT EXISTS TEST;NON_KEYWORDS=KEY,VALUE;
+    url: jdbc:h2:file:./Backend/SpringBoot/myh2db;MODE=MySQL;INIT=CREATE SCHEMA IF NOT EXISTS TEST;NON_KEYWORDS=KEY,VALUE;
     driver-class-name: org.h2.Driver
     # username: admin
     # password: admin
