@@ -1,0 +1,15 @@
+databaseChangeLog:
+  - includeAll:
+      path: ddl
+
+  - changeSet:
+      id: insert-test-data-1
+      author: rohit
+      context: local
+      changes:
+        - sqlFile:
+            path: classpath:dml/Update_Test.sql
+            relativeToChangelogFile: false
+            endDelimiter: ';'
+            splitStatements: true
+            stripComments: true

@@ -1,0 +1,34 @@
+spring:
+  application:
+    name: fullstack-backend
+
+  datasource:
+    url: jdbc:h2:file:./Backend/SpringBoot/myh2db;MODE=Oracle;INIT=CREATE SCHEMA IF NOT EXISTS TEST;NON_KEYWORDS=KEY,VALUE;
+    driver-class-name: org.h2.Driver
+    # username: admin
+    # password: admin
+
+  h2:
+    console:
+      enabled: true
+  jpa:
+    hibernate:
+      default_schema: TEST
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+  # Disable Spring Boot SQL initialization when using Liquibase to manage schema/data
+  sql:
+    init:
+      mode: never
+  test:
+    database:
+      replace: none
+  liquibase:
+    enabled: true
+    change-log: classpath:db.changelog-master.yaml
+    contexts: local
+    liquibase-schema: TEST
+    default-schema: TEST
+

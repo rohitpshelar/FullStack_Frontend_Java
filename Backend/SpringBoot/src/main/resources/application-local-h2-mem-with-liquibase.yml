@@ -1,0 +1,30 @@
+spring:
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:testdb;MODE=Oracle;INIT=CREATE SCHEMA IF NOT EXISTS TEST;NON_KEYWORDS=KEY,VALUE;
+    username: sa
+    password: sa
+  h2:
+    console:
+      enabled: true
+  jpa:
+    properties:
+      hibernate:
+        ddl-auto: update
+        default_schema: TEST
+      show-sql: true
+      properties:
+          hibernate:
+          format_sql: true
+  sql:
+    init:
+      data-locations: classpath:dml/Update_Test.sql
+  test:
+    database:
+      replace: none
+  liquibase:
+    enabled: true
+    change-log: classpath:db.changelog-master.yaml
+    contexts: local
+    liquibase-schema: TEST
+    default-schema: TEST

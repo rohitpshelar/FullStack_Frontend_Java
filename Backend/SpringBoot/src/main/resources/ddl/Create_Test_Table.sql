@@ -1,0 +1,9 @@
+-- liquibase formatted sql
+
+-- changeset Rohit:Create_Test_Table context:local
+CREATE TABLE test.test_table (
+    "ID" NUMBER GENERATED ALWAYS AS IDENTITY (START WITH 1 INCREMENT BY 1) NOT NULL,
+    "NAME" VARCHAR2(255) NOT NULL,
+    "DESCRIPTION" VARCHAR2(255) NULL,
+    "CREATED_AT" TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL
+)
